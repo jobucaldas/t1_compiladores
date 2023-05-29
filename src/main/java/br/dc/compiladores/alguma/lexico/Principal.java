@@ -16,9 +16,14 @@ public class Principal {
 
             AlgumaLexer lex = new AlgumaLexer(cs);
 
-            while (lex.nextToken().getType() != Token.EOF) {
-                pw.println("");
+            Token t = null;
+            while ((t = lex.nextToken()).getType() != Token.EOF) {
+                pw.println("<"+ AlgumaLexer.VOCABULARY.getDisplayName(t.getType()) + "," + t.getText()+">");
             }
+
+            // while (lex.nextToken().getType() != Token.EOF) {
+            //     pw.println("");
+            // }
         } catch(IOException ex) {
             System.err.println("O arquivo/diretório não existe:"+args[1]);
         }

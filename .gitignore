@@ -1,3 +1,5 @@
-.target/*
+target/*
 .vscode/*
+src/main/antlr4/br/dc/compiladores/alguma/lexico/.antlr/*
+*.jar
 output.txt
