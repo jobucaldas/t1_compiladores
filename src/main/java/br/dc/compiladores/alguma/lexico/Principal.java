@@ -19,13 +19,25 @@ public class Principal {
             Token t = null;
             // Itera todos os tokens
             while ((t = lex.nextToken()).getType() != Token.EOF) {
+                String nomeToken = AlgumaLexer.VOCABULARY.getDisplayName(t.getType());
                 if((AlgumaLexer.VOCABULARY.getDisplayName(t.getType()) == "OP_REL")
                  | (AlgumaLexer.VOCABULARY.getDisplayName(t.getType()) == "OP_ARIT")
                  | (AlgumaLexer.VOCABULARY.getDisplayName(t.getType()) == "PALAVRA_CHAVE")
                  | (AlgumaLexer.VOCABULARY.getDisplayName(t.getType()) == "TYPES"))
                 {
                     pw.println("<'" + t.getText() + "','" + t.getText() + "'>");
-                } else{
+                } 
+                else if(nomeToken.equals("SIMBOLO_NAO_RECONHECIDO")) {
+                    pw.println("Linha "+t.getLine()+": "+t.getText()+" - simbolo nao identificado");
+                    break;
+                } else if(nomeToken.equals("CADEIA_NAO_FECHADA")) {
+                    pw.println("Linha "+t.getLine()+": cadeia literal nao fechada ");
+                    break;
+                } else if(nomeToken.equals("COMENTARIO_NAO_FECHADO")) {
+                    pw.println("Linha "+t.getLine()+": comentario nao fechado ");
+                    break;
+                }
+                else{
                     pw.println("<'" + t.getText() + "'," + AlgumaLexer.VOCABULARY.getDisplayName(t.getType()) + ">");
                 }
             }
