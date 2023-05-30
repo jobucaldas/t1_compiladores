@@ -31,10 +31,10 @@ public class Principal {
                     pw.println("Linha "+t.getLine()+": "+t.getText()+" - simbolo nao identificado");
                     break;
                 } else if(nomeToken.equals("CADEIA_NAO_FECHADA")) {
-                    pw.println("Linha "+t.getLine()+": cadeia literal nao fechada ");
+                    pw.println("Linha "+t.getLine()+": cadeia literal nao fechada");
                     break;
                 } else if(nomeToken.equals("COMENTARIO_NAO_FECHADO")) {
-                    pw.println("Linha "+t.getLine()+": comentario nao fechado ");
+                    pw.println("Linha "+t.getLine()+": comentario nao fechado");
                     break;
                 }
                 else{
